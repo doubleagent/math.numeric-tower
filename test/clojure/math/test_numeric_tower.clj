@@ -18,10 +18,9 @@
       (expt 8M 1) 8M
       (expt 16M 16) 18446744073709551616M))
 
-(when-available clojure.lang.BigInt
-  (deftest test-expt-bigint
-    (are [x y] (= x y)
-      (expt (bigint 4) 0) (bigint 1))))
+(deftest test-expt-bigint
+  (are [x y] (= x y)
+       (expt (bigint 4) 0) (bigint 1)))
 
 (deftest test-abs
   (are [x y] (= x y)
@@ -127,3 +126,4 @@
    (exact-integer-sqrt 15) [3 6]
    (exact-integer-sqrt (inc (expt 2 32))) [(expt 2 16) 1]
    (exact-integer-sqrt 1000000000000) [1000000 0]))
+
